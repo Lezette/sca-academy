@@ -1,0 +1,197 @@
+
+* {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+#start {
+  color: aqua;
+}
+
+/* [id="start"] {
+  color: aqua;
+} */
+
+/* [role="button"] {
+  color: aqua;
+} */
+
+
+
+.red {
+  color: red;
+}
+
+p {
+  color: blue;
+  /* font-size : 40px; */
+}
+
+
+/* h1 {
+    margin: 5px 10px;
+    border: 2px solid #000;
+    font: italic small-caps bold 16px/1.5 Arial, sans-serif;
+} */
+
+.outer {
+  border: 1px solid green;
+  margin-bottom: 40px;
+}
+
+
+/* #specific {
+  border: 3px solid limegreen;
+} */
+
+/* #specific:hover {
+  border: 3px solid red;
+} */
+
+/* #specific::after {
+  content: 'This is after';
+} */
+
+
+/* input[type="text"] {
+  outline: 5px solid red;
+} */
+
+/* Specificity score of 11
+ a is 1 point and [href="#"] is 10 point */
+/* a[href="#"] {
+
+} */
+
+
+/* Worth 21 point */
+
+article.card.dark {
+
+}
+
+
+/* 1 + 1 */
+
+article > section {
+
+}
+
+
+/*  */
+
+article:hover a[href] {
+
+}
+
+/* 1, 10, 1, 10, */
+
+
+
+/* 22 */
+
+
+article *:first-child {
+  font-weight: bold;
+}
+
+/* Descendant */
+div  p {
+  color: red; 
+}
+
+/* Child combinator */
+div > p {
+  color: red;
+}
+
+/* Adjacent Sibling */
+
+h2 + p {
+color: red;
+}
+
+/* General Sibling Combinator */
+h2 ~ p {
+color: green;
+}
+
+
+.my-class {
+  color: red !important; /* 10,000 points */
+  background: white; /* 10 points */
+
+}
+
+
+/* p {
+  display: block;
+  width: 30%;
+  height: 250px;
+  margin: 10px auto;
+  padding: 10px 15px;
+  border-width: 2px 3px 5px 10px;
+  border-style: dotted;
+  border-top-style: solid;
+  border-color: pink;
+  /* border-radius: 30px ; */
+  /* border-radius: 10px 20px;
+  border-radius: 10px 20px 30px 40px; */
+  /* border-radius: 50%; */
+  /* border-bottom-left-radius: 50%; */
+
+  /* max-width:90%;
+   max-height:100px;
+   min-width: 50% ;
+   min-height: ; */
+/* }  */
+
+
+
+
+.button {
+
+  display: inline-block;
+
+  padding: 10px 20px;
+
+  background-color: #3498db;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  border-radius: 5px;
+
+  transition: background-color 0.3s ease;
+
+}
+
+
+.button:hover {
+
+  background-color: #2980b9;
+
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 20px;
+}
+
+
+.grid-item {
+  width: 100px;
+  padding: 10px;
+  background-color: lightblue;
+  box-sizing: border-box;
+
+}
+
