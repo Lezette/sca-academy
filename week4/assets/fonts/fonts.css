@@ -1,0 +1,19 @@
+@font-face {
+
+  font-family: 'KyivType';
+
+  src: url("KyivType-Sans-Medium-.otf") format("opentype"),
+
+    url("KyivType-Sans-Medium.otf") format("opentype"),
+
+    url("KyivType-Sans-Medium2.otf") format("opentype"),
+
+    url("KyivType-Sans-Medium3.otf") format("opentype");
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-display: swap;
+
+}
