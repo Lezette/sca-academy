@@ -1,0 +1,334 @@
+/* .container {
+  display: flex;
+  width: 600px;
+  height: 400px;
+  flex-wrap: wrap;
+  border: 5px solid pink;
+  flex-direction: row-reverse;
+   justify-content: center;
+   align-items: center;
+} */
+
+/* .container div {
+    width: 200px;
+    height: 150px;
+    border: 1px solid saddlebrown;
+  } */
+
+  .container {
+    width: 800px;
+    
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 5em 100px 30%;
+  grid-template-rows: 200px auto;
+  gap: 1rem; */
+
+  /* column-count: 3;
+  column-width: 40px;
+  
+*/
+
+  div {
+    /* transform: rotate(2deg); */
+    /* transform: scale(0.4); */
+    /* transform: translateX(400px); */
+    /* transform: skew(0.4turn, 15deg); */
+    transform: rotate(0);
+    transition: transform 4s;
+    /* transform: rotate(-45deg) translate(100px, 100px) scale(1.5); */
+    transform-origin: bottom right;
+
+    &:hover {
+
+      transform: rotate(-45deg);
+    }
+  } 
+
+}
+
+
+.pulse {
+
+  /* width: 30px;
+
+  height: 30px;
+
+  background: turquoise;
+
+  border-radius: 50%;
+
+  position: relative; */
+
+   width: 100px;
+
+    height: 100px;
+
+    background-color: blue;
+
+    animation-name: bounce;
+
+    animation-duration: 2s;
+
+    animation-timing-function: ease-in-out;
+
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    animation-delay: 1s;
+
+    /* animation: my-animation 10s ease-in-out 1s infinite reverse forwards running; */
+
+
+    /* &:hover {
+      animation-play-state: running;
+    } */
+
+    /* animation-direction:; */
+
+}
+
+@media (prefers-reduced-motion) {
+
+  .pulse {
+
+    animation-play-state: paused;
+
+  }
+
+}
+
+/* :root {
+  --variable: 100%;
+} */
+
+
+/* .pulse::after {
+
+  content: '';
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 100%;
+
+  top: 0;
+
+  left: 0;
+
+  background: paleturquoise;
+
+  border-radius: 50%;
+
+  z-index: -1;
+
+
+} */
+
+
+/* .pulse::after {
+
+  animation: pulse 1000ms cubic-bezier(0.9, 0.7, 0.5, 0.9) infinite;
+
+} */
+
+
+@keyframes pulse {
+
+  0% {
+
+    opacity: 0;
+
+  }
+
+  50% {
+
+    transform: scale(1.4);
+
+    opacity: 0.4;
+
+  }
+
+}
+
+
+@keyframes bounce {
+
+    0% {
+
+        transform: translateX(20px);
+
+    }
+
+    50% {
+
+        transform: translateX(80px);
+
+    }
+
+    100% {
+
+        transform: translateX(100px);
+
+    }
+
+}
+
+
+
+
+
+.container {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: 100%;
+
+  height: 80vh;
+
+  max-height: 600px;
+
+  position: relative;
+
+
+ h1 {
+
+   padding: 1.5em;
+
+   background: hsla(58, 87%, 48%, 0.55);
+
+   /* backdrop-filter: blur(60px); */
+   
+   /* filter: blur(4px); */
+
+   z-index: 1;
+
+   font-weight: bold;
+
+   text-transform: uppercase;
+
+ }
+
+ img {
+
+   width: 100%;
+   display: block;
+
+   height: 100%;
+
+   position: absolute;
+
+   top: 0;
+
+   left: 0;
+
+   object-fit: cover;
+   filter: brightness(30%) contrast(60%);
+   /* filter: contrast(60%); */
+
+ }
+
+} 
+
+.sec-img {
+  margin: 5rem 0;
+  display: block;
+
+  /* box-shadow: 5px 5px 10px orange; */
+  filter: drop-shadow(5px 5px 10px orange);
+}
+
+
+.duotone {
+
+  max-width: 450px;
+
+  position: relative;
+
+  margin: 0 auto;
+  display: block;
+
+}
+
+
+.duotone::before,
+
+.duotone::after {
+
+  content: '';
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  z-index: 1;
+
+}
+
+
+.duotone img {
+
+  filter: grayscale() brightness(110%);
+
+}
+
+
+.duotone::after {
+
+  background: hotpink;
+
+  mix-blend-mode: screen;
+
+}
+
+
+.duotone::before {
+
+  background: navy;
+
+  mix-blend-mode: lighten;
+
+}
+
+
+
+@media (min-width: 768px){
+
+  .duotone {
+
+  display: none;
+
+}
+
+}
+
+.duotone {
+  display: block;
+
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background-color: black;
+    color: white;
+  }
+
+
+}
