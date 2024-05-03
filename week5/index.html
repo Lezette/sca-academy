@@ -27,12 +27,144 @@
     <img src="./assets/images/pexels-marina-endzhirgli-725723515-22230671.jpg" alt="">
 
 
-    <a href="main.html">Our main meal</a>
+    <a href="main.html" id="main">Our main meal</a>
 
   </main>
   <footer>
 
   </footer>
+  <!-- <script src="./scripts/scripts.js" defer></script> -->
+  <script>
+    const mainPage = document.getElementById("main");
+
+
+    mainPage.addEventListener('click', (e) => {
+      e.preventDefault();
+    })
+
+    // single line comment
+
+    /* 
+
+    multi line comment
+    */
+
+
+    let num1 = 4;
+    let num2 = 4;
+
+    // console.log(num1 === num2);
+
+    let word;
+
+    // console.log(null === undefined);
+
+
+
+
+    const whatNum = true;
+
+    // 0, null, undefined, NaN, ""  == false
+
+
+    // console.log(Boolean(-1));
+
+
+
+    // word = `This
+    // is a word
+
+    // `
+    // console.log(typeof word);
+    // console.log(`The result is ${whatNum}.`);
+
+    const person = {
+
+      name: 'John',
+
+      age: 30,
+
+      greet: function () {
+
+        console.log('Hello, my name is ' + this.name);
+
+      }
+
+    };
+
+
+
+
+    // console.log(person.greet());
+
+
+    const persons = [9, 20, 40, 60, 50]
+
+    // console.log(persons[0])
+
+
+
+
+
+
+
+
+
+    // console.log(typeof parseInt(word));
+    console.log('Six' + 5);
+
+
+    num1 = 10;
+
+
+
+    if (num1 == 8) {
+      console.log("Yay")
+    }
+
+
+    function add (num1, num2) {
+      return num1 + num2;
+    }
+
+    console.log(add(3, 7))
+
+    // console.log(hello)
+
+    const person1 = {
+
+      name: 'John',
+
+      age: 30,
+
+      greet: function () {
+
+        console.log('Hello, my name is ' + this.name);
+
+      }
+
+    };
+
+    const person2 = {
+
+      name: 'John',
+
+      age: 30,
+
+      greet: function () {
+
+        console.log('Hello, my name is ' + this.name);
+
+      }
+
+    };
+
+
+    console.log(person1.name == person2.name);
+
+
+
+  </script>
 </body>
 
 </html>
