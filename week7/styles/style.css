@@ -1,0 +1,24 @@
+html,
+body {
+  color-scheme: dark;
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.follower {
+  background-color: #f27481;
+  padding: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.container:hover .follower {
+  transition: transform 0.2s;
+}
