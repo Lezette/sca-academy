@@ -1,164 +1,177 @@
+const searchBox = document.getElementById("searchBox");
+const list = document.getElementById("list");
 
-
-// const person = {
-//   firstName: "John",
-//   lastName: "Doe",
-//   id: 5566,
-//   fullName: function () {
-//     return this.firstName + " " + this.lastName;
-//   }
-// };
-
-// person.lastName;
-
-// person["lastName"];
-
-let x = this
-
-// console.log({ x });
-
-
-
-// objectName.methodName()
-
-// console.log(person.fullName());
-
-// const person = { name: 'Alice', age: 25 };
-
-// for (const key in person) {
-//   console.log(`${key}:  ${person[key]}`);
-// }
-
-
-// console.log(Object.keys(person));
-// console.log(Object.values(person));
-// console.log(Object.entries(person));
-
-
-// const person = { name: 'Alice', age: 25 };
-
-// Object.keys(person).forEach(key => {
-
-//   console.log(`${key}: ${person[key]}`);
-
-// });
-
-
-
-const cars = ["Saab", "Volvo", "BMW", "Lexus", "BMW"];
-
-// cars[0] = "saab";
-
-// const cars = new Array("Saab", "Volvo", "BMW");
-
-// let car = cars[2]
-
-
-// let car = cars.pop();
-// console.log(cars)
-
-// let car = cars.push("Toyota")
-
-// cars.shift()
-// cars.unshift("Toyota")
-
-console.log(cars)
-
-// console.log(cars.join("  "))
-
-
-// console.log(typeof cars)
-// console.log(Array.isArray(cars))
-
-// const myGirls = ["Cecilie", "Lone"];
-// const myBoys = ["Emil", "Tobias", "Linus"];
-
-// console.log(myGirls.concat(myBoys))
-
-// cars.copyWithin(2, 0)
-
-// cars.splice(2, 2)
-
-// console.log(cars)
-
-// toSplice
-
-
-
-// const myArr = [[1, 2], [3, 4], [5, 6]];
-
-// console.log(myArr.flat());
-
-// const months = ["Jan", "Feb", "Mar", "Apr"];
-// const spliced = months.toSpliced(0, 1);
-// console.log(spliced);
-
-
-
-
-
-
-// const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
-// const citrus = fruits.slice(1);
-
-// console.log({ fruits });
-// console.log({ citrus });
-
-
-// console.log(cars.indexOf("BMW"));
-// console.log(cars.includes("BMW"));
-
-
-// console.log(cars.find(car => car == "BMW"));
-
-
-// const numbers = [1, 2, 3, 4, 5];
-
-
-// Find the first element that is greater than 3
-
-// const found = numbers.find(number => number > 3);
-
-
-// console.log(found); // Output: 4
-
+const fruits = ['banana', 'apple', 'kiwi', 'pineapple'];
 
 const people = [
-
   { name: 'Alice', age: 25 },
   { name: 'Charlie', age: 35 },
   { name: 'Bob', age: 30 },
-
+  { name: 'Jane', age: 30 },
+  { name: 'Lily', age: 30 },
 ];
 
-people.sort((a, b) => a.name.localeCompare(b.name));
 
-console.log(people);
+searchBox.addEventListener('change', (e) => {
+  console.log({ e });
+  const newPeople = people.filter((person) => person.name.toLowerCase().includes(searchBox.value.toLowerCase()))
 
+  list.innerHTML = '';
+  listFruit(newPeople)
 
-// Find the first person whose age is greater than 28
+});
 
-const person = people.find(person => person.age > 28);
-
-
-console.log(person); // Output: { name: 'Bob', age: 30 }
-
-
-const fruits = ['banana', 'apple', 'orange'];
-
-fruits.sort();
-
-console.log(fruits);
+// const sum = people.reduce((total, person) => total + person.age, 0);
+// console.log(sum);
 
 
-// const numbers = [12, 5, 2, 7];
 
-// numbers.sort();
+const listFruit = (items) => {
+  items.map((item) => {
+    list.innerHTML += item.name + '<br />';
+  })
+}
 
-// console.log(numbers);
+listFruit(people)
 
-// const numbers = [12, 5, 2, 7];
 
-// numbers.sort((a, b) => a - b);
+function sum (a, b, c) {
+  return a + b + c;
+}
 
-// console.log(numbers);
+const numbers = [1, 2, 3];
+
+// console.log(sum(...numbers));
+
+
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1];
+
+const mergerdArr = [...arr1, ...arr2];
+
+// console.log({ mergerdArr });
+
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1 };
+
+// console.log({ mergerdObj: { ...obj1, ...obj2 } });
+
+
+let x = true, y = false
+
+
+
+/*
+
+== equal to
+===
+!=
+!==
+>
+<
+>=
+<=
+
+
+&& - Logical AND
+|| - Logical OR
+! - Logical Not
+*/
+
+
+// if (!x) {
+//   console.log("It's true");
+// } else {
+//   console.log("It's not true");
+// }
+
+// let score = 75;
+
+
+// if (score >= 90) {
+
+//   console.log("You got an A.");
+
+// } else if (score >= 80) {
+
+//   console.log("You got a B.");
+
+// } else if (score >= 70) {
+
+//   console.log("You got a C.");
+
+// } else {
+
+//   console.log("You got a D or F.");
+
+// }
+
+
+// switch (key) {
+//   case value:
+
+//     break;
+
+//   default:
+//     
+// }
+
+
+
+let day = 2;
+
+switch (day) {
+
+  case 1:
+
+    console.log("Monday");
+
+    break;
+
+  case 2:
+
+    console.log("Tuesday");
+
+    break;
+
+  case 3:
+
+    console.log("Wednesday");
+
+    break;
+
+  default:
+
+    console.log("Not a valid day");
+
+}
+
+
+let weather = "sunny";
+
+switch (weather) {
+
+  case "sunny":
+
+    console.log("Wear sunglasses.");
+
+  // intentional fall-through
+
+  case "cloudy":
+
+    console.log("It might be a good idea to carry an umbrella.");
+
+    break;
+
+  case "rainy":
+
+    console.log("Don't forget your umbrella!");
+
+    break;
+
+  default:
+
+    console.log("Check the weather forecast before you go out.");
+
+}
