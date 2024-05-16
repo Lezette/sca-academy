@@ -5,20 +5,39 @@ body {
   margin: 0;
 }
 
-.container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.follower {
-  background-color: #f27481;
-  padding: 1rem;
-  position: relative;
-  cursor: pointer;
+li {
+  list-style: none;
 }
 
-.container:hover .follower {
-  transition: transform 0.2s;
+.todo-container {
+
+  max-width: 400px;
+
+  margin: 0 auto;
+
+  padding: 20px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 5px;
+
 }
+
+#feedback {
+  display: none;
+}
+
+.todo-lists ul li {
+  text-decoration: none;
+}
+
+.done-lists ul li {
+  text-decoration: line-through;
+}
+
+/* .done-lists ul li input[type='checkbox'] {} */

@@ -5,20 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Javascript</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
+  <div class="todo-container">
 
-  <div class="container">
-    <div id="follower" class="follower">Follow me!</div>
+    <input type="text" id="taskInput" placeholder="Add new task">
+
+    <button id="addTaskBtn">Add Task</button>
+
+    <div id="feedback"></div>
+    <br><br><br><br>
+
+    <div class="list-title" id="todoTitle">Tasks to-do - 0</div><br>
+
+    <div class="todo-lists">
+
+      <ul class="todo-list" id="todoList">
+
+      </ul>
+
+    </div> <br><br><br><br>
+
+    <div class="list-title" id="doneTitle">Done - 0</div> <br>
+    <div class="done-lists">
+      <ul class="done-list" id="doneList"></ul>
+    </div>
 
   </div>
+
+
+
   <script src="scripts/script.js"></script>
-
-
-
 </body>
 
 </html>
