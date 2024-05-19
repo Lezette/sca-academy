@@ -10,34 +10,10 @@ body {
   padding: 0;
 }
 
-li {
-  list-style: none;
+
+.todo-item {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
 }
-
-.todo-container {
-
-  max-width: 400px;
-
-  margin: 0 auto;
-
-  padding: 20px;
-
-  border: 1px solid #ccc;
-
-  border-radius: 5px;
-
-}
-
-#feedback {
-  display: none;
-}
-
-.todo-lists ul li {
-  text-decoration: none;
-}
-
-.done-lists ul li {
-  text-decoration: line-through;
-}
-
-/* .done-lists ul li input[type='checkbox'] {} */
