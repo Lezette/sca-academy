@@ -8,7 +8,6 @@ import Home from './views/home';
 import About from './views/about';
 
 
-
 const router = createBrowserRouter([
   {
     path: "/",

@@ -3,6 +3,8 @@
 import Board from "../components/Board"
 import { useState } from "react";
 
+import Button from "../components/Button";
+
 const Home = () => {
 
 
@@ -57,6 +59,12 @@ const Home = () => {
         <div className="mt-5">{winner ? 'Winner: ' + winner : 'Next player: ' + (isXNext ? 'X' : 'O')}</div>
 
         <ul>{renderMoves()}</ul>
+
+
+        <div className="mt-5">
+          <Button>Donate</Button>
+          <Button>Visit us</Button>
+        </div>
       </div>
     </div>
   )
