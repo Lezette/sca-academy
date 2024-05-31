@@ -24,8 +24,13 @@ export const createPost = async (formData) => {
   }
 }
 
-export const getPosts = () => {
-  fetch(`${API_URL}/items?list=10`)
-    .then((res) => res)
+export const getPosts = async () => {
+
+  try {
+    const response = await fetch(`${API_URL}/items?list=10`).then(res => res.json())
+    return response
+  } catch (error) {
+    return error
+  }
 }
 
