@@ -1,8 +1,5 @@
 const api = import.meta.env.VITE_API_URL;
 
-
-
-
 export const createUser = async (body) => {
 
   try {
@@ -10,17 +7,13 @@ export const createUser = async (body) => {
     const response = await fetch(`http://localhost:3011/user`, {
       method: "POST",
       body: body,
-      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json"
       }
-    }).then((res) => {
-      if (res.status !== 200 || res.status !== 201) {
-        throw new Error(res.statusText)
-      }
     })
+      .then((res) => res)
 
-    return response;
+    return { response };
 
   } catch (error) {
     return error
@@ -28,6 +21,24 @@ export const createUser = async (body) => {
 
 }
 
+export const editUser = async (body, userId) => {
+  try {
+
+    const response = await fetch(`http://localhost:3011/user/${userId}`, {
+      method: "PATCH",
+      body: body,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then((res) => res)
+
+    return { response };
+
+  } catch (error) {
+    return error
+  }
+
+}
 
 export const getUsers = async () => {
   try {
@@ -40,4 +51,31 @@ export const getUsers = async () => {
   } catch (error) {
     return error
   }
+}
+
+export const getUser = async (id) => {
+  try {
+    const response = await fetch(`${api}/user/${id}`)
+      .then((res) => res.json())
+
+    return response;
+
+  } catch (error) {
+    return error
+  }
+}
+
+
+export const deleteUser = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3011/user/${id}`, {
+      method: "DELETE"
+    }).then((res) => res)
+
+    return { response };
+
+  } catch (error) {
+    return error
+  }
+
 }

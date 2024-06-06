@@ -1,27 +1,45 @@
-import { Link } from "react-router-dom"
-
-import { useState } from "react"
+import { Link, useHref, useNavigate } from "react-router-dom"
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-import { createUser } from "../api"
-
-const initialValue = {
-  first_name: '',
-  last_name: '',
-  email: ''
-}
+import { useEffect, useState } from "react"
+import { getUser, editUser, deleteUser } from "../api"
 
 
-const Homepage = () => {
+const Users = () => {
+
+  const href = useHref()
+
+  const navigate = useNavigate()
+
+  const userId = href.split('/users/')[1];
+
+
 
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
     email: ''
   })
+
+
+  useEffect(() => {
+    const fetctUser = async () => {
+      const data = await getUser(userId)
+      if (data.statusCode
+        === 404) {
+        navigate("/not-found")
+
+      } else {
+        setFormData(data)
+      }
+    }
+
+    fetctUser()
+
+  }, [])
+
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -37,30 +55,34 @@ const Homepage = () => {
   }
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
+    const response = await editUser(JSON.stringify(formData), userId)
 
-    const res = await createUser(JSON.stringify(formData))
-
-    const { response } = res
-
-    if (response.status === 201) {
-      setFormData(initialValue)
-      toast.success("Users has been created")
+    if (response?.response.status === 200) {
+      toast.success("User info has been updated")
     } else {
       toast.error("An error occured")
     }
   }
 
+  const handleDelete = async () => {
+    const response = await deleteUser(userId)
+
+    if (response.response.status === 200) {
+      navigate("/users")
+    } else {
+      toast.error("An error occured");
+    }
+  }
 
 
   return (
-    <main className="container mx-auto my-12 px-8">
+    <main className=" container mx-auto my-12 px-10 lg:px-0">
       <div>
-        <Link to="/users" className="bg-cyan-700 py-3 px-3 rounded inline-block">See all users</Link>
+        <Link to="/users" className="bg-cyan-700 py-3 px-3 rounded inline-block">Back</Link>
       </div>
-
       <section className="lg:w-4/12 md:w-6/12 mx-auto md:px-0 mt-5">
+
         <form className="bg-white p-5 rounded-xl" onSubmit={handleSubmit}>
           <div className="my-4 flex flex-col gap-y-2">
             <label
@@ -97,15 +119,20 @@ const Homepage = () => {
             />
           </div>
 
-          <div className="text-center">
-            <button className="px-12 py-3 text-sm text-purple-600 font-semibold rounded-lg border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Add User</button>
+          <div className="text-center flex justify-between">
+            <button type="submit" className="px-12 py-3 text-sm text-purple-600 font-semibold rounded-lg border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Edit User</button>
+
+
+            <button onClick={handleDelete} type="button" className="px-12 py-3 text-sm text-red-500 font-semibold rounded-lg border border-purple-200 hover:text-white hover:bg-red-500 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Delete User</button>
           </div>
         </form>
+
         <ToastContainer />
       </section>
+
     </main>
   )
 
 }
 
-export default Homepage
+export default Users

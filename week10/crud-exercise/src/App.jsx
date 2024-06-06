@@ -1,32 +1,25 @@
 
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter,
+  Routes, Route
 } from "react-router-dom";
 
-import { Homepage, Users, NotFound } from "./pages"
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Homepage />,
-  },
-  {
-    path: "/users",
-    element: <Users />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-]);
+import { Homepage, Users, NotFound, SingleUser } from "./pages"
 
 
 function App () {
 
   return (
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route>
+          <Route path="/users" index element={<Users />} />
+          <Route path="users/:userId" element={<SingleUser />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
