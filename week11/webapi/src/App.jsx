@@ -1,62 +1,27 @@
-
 import './App.css'
-import { useContext } from 'react'
+import {
+  BrowserRouter,
+  Routes, Route
+} from "react-router-dom";
 
-import { ThemeContext } from './context/ThemePref'
+import { Homepage, NotFound } from './pages';
 
 function App () {
 
 
-
-  const { setTheme, theme } = useContext(ThemeContext)
-
   return (
-    <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
 
-      <label htmlFor="theme">Select Theme</label>
-      <select value={theme} onChange={(e) => setTheme(e.target.value)} id="theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
 
-
-      <div className="mb-10">
-        <FirstComp />
-      </div>
-
-    </div >
   )
 }
 
 
-const FirstComp = () => {
 
-  const { userInfo } = useContext(ThemeContext)
-
-
-  return (
-    <div>
-
-
-      <div>Hello {userInfo.name}</div>
-
-
-      <SecondComp />
-    </div>
-  )
-}
-
-const SecondComp = () => {
-
-  const { theme } = useContext(ThemeContext)
-
-
-
-  return (
-    <div>
-      {theme === 'light' ? <div>The User prefers light mode</div> : <div>The User prefers dark mode</div>}
-    </div>
-  )
-}
 
 export default App
